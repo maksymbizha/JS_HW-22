@@ -1,3 +1,22 @@
+const questions = [{
+    caption: 'Подія натискання на елемент називається click?',
+    correctAnswer: true
+    },
+    {
+        caption: 'Усередині розмітки не можна додати обробник події?',
+        correctAnswer: false
+    },
+    {
+        caption: 'Припинити спливання події можна за допомогою метода stopImmediatePropagation?',
+        correctAnswer: false
+    },
+    {
+        caption: 'Припинити спливання події можна за допомогою метода stopPropagation?',
+        correctAnswer: true
+    }]
+
+
+
 /*------- ul --------*/
 const ulElement = document.querySelector('ul');
 
@@ -16,19 +35,19 @@ ulElement.append(fourthLiElement);
 
 /*------- label --------*/
 const oneLabelElement= document.createElement('label')
-oneLabelElement.innerText  = 'Подія натискання на елемент називається click?';
+oneLabelElement.innerText  = questions[0].caption;
 oneLiElement.append(oneLabelElement)
 
 const twoLabelElement= document.createElement('label')
-twoLabelElement.innerText  = 'Усередині розмітки не можна додати обробник події?';
+twoLabelElement.innerText  = questions[1].caption;
 twoLiElement.append(twoLabelElement)
 
 const thirdLabelElement= document.createElement('label')
-thirdLabelElement.innerText  = 'Припинити спливання події можна за допомогою метода stopImmediatePropagation?';
+thirdLabelElement.innerText  = questions[2].caption;
 thirdLiElement.append(thirdLabelElement)
 
 const fourthLabelElement= document.createElement('label')
-fourthLabelElement.innerText  = 'Припинити спливання події можна за допомогою метода stopPropagation?';
+fourthLabelElement.innerText  = questions[3].caption;
 fourthLiElement.append(fourthLabelElement)
 
 
@@ -61,7 +80,8 @@ const resultSpan = document.querySelector('span');
 
 const arr= [];
 const buttonElement = document.querySelector('button')
-buttonElement.addEventListener("click", function (event){
+buttonElement.addEventListener("click", function f(event){
+
 
 
     if ( oneCheckbox.checked === true) {
@@ -76,15 +96,14 @@ buttonElement.addEventListener("click", function (event){
         arr.push(+1)
     }
 
+
     const result = arr.reduce(function(sum, current) {
         return sum + current;
     }, 0);
     resultSpan.innerText = ` = ${result} / 4 `;
 
+    this.removeEventListener('click', f );
 
 })
-
-
-
 
 
