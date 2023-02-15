@@ -43,7 +43,7 @@ const resultSpan = document.querySelector('span');
 
 /*------- click  --------*/
 
-const arr= [];
+
 
 const buttonElement = document.querySelector('button')
 
@@ -51,6 +51,7 @@ const buttonElement = document.querySelector('button')
 
 buttonElement.addEventListener("click", function f(event){
 
+    const arr= [];
 
     const checkBox = document.getElementsByTagName('input')
 
@@ -61,17 +62,12 @@ buttonElement.addEventListener("click", function f(event){
         }
     }
 
-    let result = arr.reduce(function(sum, current) {
-        return sum + current;
-    }, 0);
+    const result = arr.length
 
     const resultLength = questions.length
 
     resultSpan.innerText = ` = ${result} / ${resultLength} `;
 
-
-
-    this.removeEventListener('click', f );
 
 })
 
